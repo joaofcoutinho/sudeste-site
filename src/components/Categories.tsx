@@ -1,9 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { CATS, GROUPS, GLABEL } from "@/lib/data";
+import { CATS, GROUPS, GLABEL, WHATSAPP_NUMBER } from "@/lib/data";
 import CategoryIcon from "./CategoryIcon";
 import { IconArrow } from "./Icons";
+
+function waLink(produto: string) {
+  const txt = `Olá! Vim pelo site da Sudeste Atacado e tenho interesse em *${produto}*. Poderiam me passar preços e disponibilidade?`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(txt)}`;
+}
 
 export default function Categories() {
   const [filter, setFilter] = useState("all");
@@ -43,10 +48,14 @@ export default function Categories() {
           {CATS.map((c) => {
             const show = filter === "all" || c.g === filter;
             return (
-              <article
+              <a
                 key={c.t}
+                href={waLink(c.t)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`cat-card reveal${show ? "" : " hidden"}`}
                 data-group={c.g}
+                aria-label={`Falar no WhatsApp sobre ${c.t}`}
               >
                 <div className="cat-thumb has-img">
                   <span className="imgtag">IMG</span>
@@ -69,7 +78,7 @@ export default function Categories() {
                     </span>
                   </div>
                 </div>
-              </article>
+              </a>
             );
           })}
         </div>

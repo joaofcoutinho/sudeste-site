@@ -26,7 +26,7 @@ export default function Contato() {
     const tel = g("telefone");
     const msg = g("mensagem");
 
-    let txt = `Olá! Sou ${nome}`;
+    let txt = `Olá! Vim pelo site da Sudeste Atacado. Sou ${nome}`;
     if (empresa) txt += ` — ${empresa}`;
     if (cidade) txt += ` (${cidade})`;
     txt += ".\n\n" + (msg || "Gostaria de montar um pedido / orçamento.");

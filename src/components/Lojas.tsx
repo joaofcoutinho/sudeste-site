@@ -5,7 +5,7 @@ const ARC = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 type Loja = {
   bbox: string;
   alt: string;
-  query: string;
+  maps: string;
   title: string;
   addr: string;
 };
@@ -14,30 +14,30 @@ const LOJAS: Loja[] = [
   {
     bbox: "-40.353,-20.3476,-40.341,-20.3356",
     alt: "Mapa de satélite — Vila Velha",
-    query: "-20.3416,-40.3470",
+    maps: "Sudeste Atacado, Rua Dez, Aribiri, Vila Velha - ES, 29120-575",
     title: "Vila Velha · ES",
-    addr: "Aribiri, Vila Velha — ES, 29120-575. Atrás da Orvel, Av. Carlos Lindenberg.",
+    addr: "R. Dez, Aribiri — Vila Velha, ES, 29120-575. Atrás da Orvel (Av. Carlos Lindenberg).",
   },
   {
-    bbox: "-40.522,-20.6746,-40.51,-20.6626",
+    bbox: "-40.505,-20.6678,-40.493,-20.6558",
     alt: "Mapa de satélite — Guarapari",
-    query: "-20.6686,-40.5160",
+    maps: "Sudeste Atacado, Rua José Piumbini, 582, Muquiçaba, Guarapari - ES, 29215-365",
     title: "Guarapari · ES",
-    addr: "Muquiçaba, Guarapari — ES. Atendimento comercial e retirada de pedidos.",
+    addr: "R. José Piumbini, 582 — Muquiçaba, Guarapari — ES, 29215-365.",
   },
   {
-    bbox: "-41.336,-21.7605,-41.324,-21.7485",
+    bbox: "-41.3259,-21.766,-41.3139,-21.754",
     alt: "Mapa de satélite — Campos",
-    query: "-21.7545,-41.3300",
+    maps: "Sudeste Atacado, Rua Doutor Oliveira Botelho, 53, Centro, Campos dos Goytacazes - RJ, 28010-320",
     title: "Campos · RJ",
-    addr: "R. Ten.-Cel. Cardoso, 270 — Centro, Campos dos Goytacazes — RJ.",
+    addr: "R. Dr. Oliveira Botelho, 53 — Centro, Campos dos Goytacazes — RJ, 28010-320.",
   },
   {
-    bbox: "-42.372,-21.1365,-42.36,-21.1245",
+    bbox: "-42.38,-21.1456,-42.368,-21.1336",
     alt: "Mapa de satélite — Muriaé",
-    query: "-21.1305,-42.3660",
+    maps: "Sudeste Atacado, Rua José Augusto de Abreu, 233, Safira, Muriaé - MG, 36883-031",
     title: "Muriaé · MG",
-    addr: "R. José Augusto de Abreu, 233 — Safira, Muriaé — MG.",
+    addr: "R. José Augusto de Abreu, 233 — Safira, Muriaé — MG, 36883-031.",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function Lojas() {
                 </span>
                 <a
                   className="loja-mapchip"
-                  href={`https://www.google.com/maps/search/?api=1&query=${l.query}`}
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l.maps)}`}
                   target="_blank"
                   rel="noopener"
                 >
