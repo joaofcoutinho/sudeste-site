@@ -1,6 +1,8 @@
-const BASE = "https://www.sudesteatacado.com.br/wp-content/uploads/2026/05/";
-// 6 logos repeated 4x to fill the looping marquee track (as in the original)
-const LOGOS = Array.from({ length: 24 }, (_, i) => `${BASE}${(i % 6) + 1}.png`);
+// Logos locais dos parceiros (public/parceiros-sudeste), repetidas para o loop do marquee
+const LOGOS = Array.from(
+  { length: 24 },
+  (_, i) => `/parceiros-sudeste/${(i % 6) + 1}.png`
+);
 
 export default function Brands() {
   return (
