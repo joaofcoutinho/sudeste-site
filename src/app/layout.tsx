@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sudeste Atacado — Distribuidor de Tecnologia em Segurança",
+  title: "Sudeste Atacado | Distribuidor de Tecnologia em Segurança",
   description:
     "CFTV, controle de acesso, redes, automação e energia das principais marcas do mercado — com estoque imediato e suporte técnico dedicado à sua revenda. ES · RJ · MG.",
 };
