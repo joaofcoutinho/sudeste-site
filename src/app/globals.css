@@ -901,3 +901,15 @@ body[data-cats="index"] .cat-tagrow{ margin:0; padding:0; flex-direction:column;
   /* No mobile o footer é centralizado — manter a logo escalando do centro */
   .footer .footer-logo-img{ transform-origin:center; }
 }
+
+/* =====================================================================
+   HERO — banner de imagem (desktop / mobile)
+   ===================================================================== */
+.hero-banner{ background:var(--ink); line-height:0; }
+.hero-banner-link{ display:block; }
+.hero-banner-img{ width:100%; height:auto; display:block; }
+.hero-banner-img.is-mobile{ display:none; }
+@media (max-width:860px){
+  .hero-banner-img.is-desktop{ display:none; }
+  .hero-banner-img.is-mobile{ display:block; }
+}
