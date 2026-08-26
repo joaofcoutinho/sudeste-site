@@ -8,6 +8,7 @@ export default function Contato() {
   const formRef = useRef<HTMLFormElement>(null);
   const [sent, setSent] = useState(false);
   const [waHref, setWaHref] = useState("#");
+  const [emailError, setEmailError] = useState(false);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,7 +39,28 @@ export default function Contato() {
     const wa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(txt)}`;
     setWaHref(wa);
     setSent(true);
+    setEmailError(false);
+
+    // Abre o WhatsApp de forma síncrona, senão o navegador bloqueia o popup
     window.open(wa, "_blank");
+
+    // Envia o lead por e-mail em segundo plano
+    fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nome,
+        empresa,
+        cidade,
+        email,
+        telefone: tel,
+        mensagem: msg,
+      }),
+    })
+      .then((r) => {
+        if (!r.ok) setEmailError(true);
+      })
+      .catch(() => setEmailError(true));
   };
 
   return (
@@ -164,6 +186,12 @@ export default function Contato() {
               <IconWhatsApp />
               Abrir WhatsApp
             </a>
+            {emailError && (
+              <p style={{ fontSize: ".85rem", color: "var(--muted-2)" }}>
+                Não conseguimos registrar seu contato por e-mail. Use o WhatsApp
+                acima ou escreva para gerencia@sudesteatacado.com.br.
+              </p>
+            )}
           </div>
         </div>
       </div>
