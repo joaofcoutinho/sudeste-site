@@ -670,9 +670,6 @@ body[data-cats="index"] .cat-tagrow{ margin:0; padding:0; flex-direction:column;
 .contato-copy .eyebrow{ color:var(--accent); }
 .contato-copy h2{ color:var(--ink); }
 .contato-copy > p{ color:var(--muted); }
-.contato-list a, .contato-list span{ color:var(--text); }
-.contato-list a:hover{ color:var(--ink); }
-.lead-card{ border:1px solid var(--line); }
 
 /* =====================================================================
    Section heading divider already handled; small refinements
@@ -723,47 +720,14 @@ body[data-cats="index"] .cat-tagrow{ margin:0; padding:0; flex-direction:column;
 }
 
 /* =====================================================================
-   CONTATO — copy + lead form
+   CONTATO — chamada para o WhatsApp
    ===================================================================== */
-.contato .wrap{ text-align:left; }
-.contato-grid{ display:grid; grid-template-columns:1fr 1.05fr; gap:clamp(36px,5vw,72px); align-items:start; }
-.contato-copy .eyebrow{ color:var(--accent); }
-.contato-copy h2{ color:#fff; font-size:clamp(2rem,3.6vw,3.1rem); margin-top:16px; text-align:left; }
+.contato-copy{ max-width:720px; margin-inline:auto; text-align:center; }
+.contato-copy .eyebrow{ color:var(--accent); justify-content:center; }
+.contato-copy h2{ color:#fff; font-size:clamp(2rem,3.6vw,3.1rem); margin-top:16px; text-align:center; }
 .contato-copy h2 .em{ color:var(--accent); }
-.contato-copy > p{ margin-top:18px; color:rgba(255,255,255,.74); font-size:1.1rem; max-width:42ch; }
+.contato-copy > p{ margin:18px auto 0; color:rgba(255,255,255,.74); font-size:1.1rem; max-width:42ch; }
 .contato-copy .btn-wa{ margin-top:28px; }
-.contato-list{ margin-top:32px; display:flex; flex-direction:column; gap:14px; }
-.contato-list a, .contato-list span{ display:inline-flex; align-items:center; gap:12px; color:rgba(255,255,255,.82); font-size:.98rem; }
-.contato-list a:hover{ color:#fff; }
-.contato-list svg{ width:18px; height:18px; color:var(--accent); flex:none; }
-
-.lead-card{ background:var(--paper); border-radius:var(--r-xl); box-shadow:var(--sh-lg); padding:clamp(26px,3vw,40px); }
-.lead-head{ margin-bottom:22px; }
-.lead-head b{ display:block; font-family:var(--font-display); font-weight:700; font-size:1.3rem; color:var(--ink); letter-spacing:-.01em; }
-.lead-head span{ display:block; margin-top:6px; font-size:.92rem; color:var(--muted); }
-.lead-form{ display:flex; flex-direction:column; gap:16px; }
-.lf-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.lf-field{ display:flex; flex-direction:column; gap:7px; }
-.lf-field label{ font-size:.78rem; font-weight:700; letter-spacing:.04em; color:var(--muted); text-transform:uppercase; }
-.lf-field input, .lf-field textarea{
-  font-family:var(--font-body); font-size:.98rem; color:var(--text); background:var(--bone);
-  border:1.5px solid var(--line); border-radius:var(--r-sm); padding:12px 14px; transition:.18s; width:100%; resize:vertical; }
-.lf-field input::placeholder, .lf-field textarea::placeholder{ color:var(--muted-2); }
-.lf-field input:focus, .lf-field textarea:focus{ outline:none; border-color:var(--accent); background:#fff; box-shadow:0 0 0 4px var(--accent-wash); }
-.lf-submit{ width:100%; margin-top:4px; }
-.lf-note{ font-size:.84rem; color:var(--muted); text-align:center; }
-.lf-note b{ color:var(--ink); }
-.lead-success{ display:none; flex-direction:column; align-items:center; text-align:center; gap:14px; padding:34px 10px; }
-.lead-success.show{ display:flex; }
-.lead-success .ok{ width:64px; height:64px; border-radius:50%; display:grid; place-items:center; background:var(--accent-wash); color:var(--accent); }
-.lead-success .ok svg{ width:30px; height:30px; }
-.lead-success b{ font-family:var(--font-display); font-weight:700; font-size:1.35rem; color:var(--ink); }
-.lead-success p{ color:var(--muted); max-width:34ch; }
-@media (max-width:900px){
-  .contato-grid{ grid-template-columns:1fr; }
-  .contato-copy h2{ text-align:left; }
-}
-@media (max-width:480px){ .lf-row{ grid-template-columns:1fr; } }
 
 /* =====================================================================
    FOOTER — new background treatment
@@ -783,10 +747,6 @@ body[data-cats="index"] .cat-tagrow{ margin:0; padding:0; flex-direction:column;
 .finalcta.contato .fc-photo{ display:none; }
 .finalcta.contato .contato-copy h2{ color:var(--ink); }
 .finalcta.contato .contato-copy > p{ color:var(--muted); }
-.finalcta.contato .contato-list a,
-.finalcta.contato .contato-list span{ color:var(--text); }
-.finalcta.contato .contato-list a:hover{ color:var(--ink); }
-.finalcta.contato .lead-card{ border:1px solid var(--line); }
 
 /* =====================================================================
    WHY media → unidades mosaic (2x2 real branch photos)
@@ -853,12 +813,6 @@ body[data-cats="index"] .cat-tagrow{ margin:0; padding:0; flex-direction:column;
   .cats-head{ align-items:center; text-align:center; }
   .cats-filter{ justify-content:center; }
 
-  /* Contato */
-  .contato-copy{ text-align:center; }
-  .contato-copy .btn-wa{ margin-inline:auto; }
-  .contato-list{ align-items:center; }
-  .lead-head{ text-align:center; }
-
   /* Footer */
   .footer-top{ text-align:center; }
   .footer .footer-about .logo{ justify-content:center; }
@@ -877,8 +831,7 @@ body[data-cats="index"] .cat-tagrow{ margin:0; padding:0; flex-direction:column;
   .section-sub,
   .hero-pro .hero-lead,
   .band p,
-  .contato-copy > p,
-  .lead-head span{ margin-inline:auto; }
+  .contato-copy > p{ margin-inline:auto; }
   /* Avaliações e lojas (já usam .center, garante consistência) */
   .reviews .section-head,
   #lojas .section-head{ text-align:center; }

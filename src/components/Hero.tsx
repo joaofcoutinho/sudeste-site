@@ -1,3 +1,4 @@
+import { WHATSAPP_NUMBER } from "@/lib/data";
 import { IconWhatsApp, IconStar } from "./Icons";
 
 export default function Hero() {
@@ -30,7 +31,12 @@ export default function Hero() {
             <a href="#categorias" className="btn btn-primary btn-lg">
               Explorar catálogo
             </a>
-            <a href="#contato" className="btn btn-ghost on-dark btn-lg">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}`}
+              target="_blank"
+              rel="noopener"
+              className="btn btn-ghost on-dark btn-lg"
+            >
               <IconWhatsApp />
               Falar no WhatsApp
             </a>
